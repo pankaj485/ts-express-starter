@@ -26,7 +26,7 @@ app.get("/", (req: Request, res: Response) => {
   });
 });
 
-// // global catch
+// global catch
 app.use(globalCatch);
 
 app.listen(PORT, () => {
