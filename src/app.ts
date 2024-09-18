@@ -1,5 +1,6 @@
 const express = require("express");
 import { Express, NextFunction, Request, Response } from "express";
+import { apiV1AppRoute } from "./routes/v1/app.route";
 
 const app: Express = express();
 app.use(express.json());
@@ -19,12 +20,7 @@ const globalCatch: GlobalCatchMiddleware = (error, req, res, next) => {
   });
 };
 
-app.get("/", (req: Request, res: Response) => {
-  res.status(200).send({
-    success: true,
-    message: "Welcome to Express server",
-  });
-});
+app.use("/api/v1", apiV1AppRoute);
 
 // global catch
 app.use(globalCatch);
